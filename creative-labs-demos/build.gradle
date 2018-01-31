@@ -1,0 +1,7 @@
+apply plugin: 'application'
+
+mainClassName = 'com.clabs.demos.Simple'
+
+dependencies {
+    compile project(':creative-labs-engine')
+}

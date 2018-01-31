@@ -1,0 +1,11 @@
+allprojects {
+
+    apply plugin: 'java'
+
+    group = 'com.clabs'
+    version = '1.0'
+
+    repositories {
+        mavenCentral()
+    }
+}

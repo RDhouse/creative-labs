@@ -1,0 +1,3 @@
+rootProject.name = 'creative-labs'
+
+include 'creative-labs-engine', 'creative-labs-games', 'creative-labs-demos'

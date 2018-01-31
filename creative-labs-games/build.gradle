@@ -1,0 +1,3 @@
+dependencies {
+    compile project(':creative-labs-engine')
+}

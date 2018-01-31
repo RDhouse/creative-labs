@@ -1,4 +1,4 @@
-package com.clabs.engine;
+package com.clabs.engine.core;
 
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;

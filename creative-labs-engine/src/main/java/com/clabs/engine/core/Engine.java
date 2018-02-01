@@ -25,6 +25,11 @@ public class Engine implements Runnable {
 
     public void run() {
         try {
+            LOGGER.trace("trace");
+            LOGGER.debug("debug");
+            LOGGER.info("info");
+            LOGGER.error("error");
+            LOGGER.fatal("fatal");
             init();
             loop();
             LOGGER.info("Run finished");

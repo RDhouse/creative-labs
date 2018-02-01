@@ -2,6 +2,8 @@ apply plugin: 'application'
 
 mainClassName = 'com.clabs.demos.Simple'
 
+applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=../log4j.xml"]
+
 dependencies {
     compile project(':creative-labs-engine')
 }

@@ -13,6 +13,10 @@ public class Simple {
     public static void main(String[] args) {
 
         LOGGER.trace("entering main() of:" + Simple.class.getCanonicalName());
+        LOGGER.debug("debug");
+        LOGGER.info("info");
+        LOGGER.error("error");
+        LOGGER.fatal("fatal");
 
         new Engine(new Game() {
             @Override

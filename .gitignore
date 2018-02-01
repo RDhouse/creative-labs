@@ -4,5 +4,7 @@ build/
 
 # idea
 .idea/
-creative-labs.iml
+creative-labs*.iml
+creative-labs*.ipr
+creative-labs*.iws
 

@@ -13,32 +13,26 @@ public class Engine implements Runnable {
     private static final Logger LOGGER = LogManager.getLogger(Engine.class);
 
     private Game game;
+    private Window window;
     private Thread gameThread;
 
     public Engine(Game game) {
-
-        LOGGER.trace("In constructor of: " + this.getClass().getName());
-
         gameThread = new Thread();
         this.game = game;
     }
 
     public void run() {
         try {
-            LOGGER.trace("trace");
-            LOGGER.debug("debug");
-            LOGGER.info("info");
-            LOGGER.warn("warn");
-            LOGGER.error("error");
-            LOGGER.fatal("fatal");
             init();
             loop();
-            LOGGER.info("Run finished");
         } catch (EngineException ee) {
-            ee.printStackTrace();
+            LOGGER.error(ee.getMessage(), ee);
         }
     }
 
-    private void init() throws EngineException {}
+    private void init() throws EngineException {
+        this.window = new Window(800, 600);
+        window.init();
+    }
     private void loop() {}
 }

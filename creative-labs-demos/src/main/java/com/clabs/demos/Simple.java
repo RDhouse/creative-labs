@@ -12,13 +12,6 @@ public class Simple {
 
     public static void main(String[] args) {
 
-        LOGGER.trace("entering main() of:" + Simple.class.getCanonicalName());
-        LOGGER.debug("debug");
-        LOGGER.info("info");
-        LOGGER.warn("warn");
-        LOGGER.error("error");
-        LOGGER.fatal("fatal");
-
         new Engine(new Game() {
             @Override
             public void init() throws EngineException {
@@ -40,8 +33,6 @@ public class Simple {
 
             }
         }).run();
-
-        LOGGER.trace("exiting main() of: " + Simple.class.getCanonicalName());
     }
     
 }

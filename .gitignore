@@ -8,3 +8,5 @@ creative-labs*.iml
 creative-labs*.ipr
 creative-labs*.iws
 
+# logs
+logs/

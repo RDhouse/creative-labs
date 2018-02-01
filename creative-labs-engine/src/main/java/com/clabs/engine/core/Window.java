@@ -1,5 +1,7 @@
 package com.clabs.engine.core;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
@@ -14,6 +16,8 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class Window {
+
+    private static final Logger LOGGER = LogManager.getLogger(Window.class);
 
     // The window handle
     private long window;

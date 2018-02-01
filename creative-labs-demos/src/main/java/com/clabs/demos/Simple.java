@@ -15,6 +15,7 @@ public class Simple {
         LOGGER.trace("entering main() of:" + Simple.class.getCanonicalName());
         LOGGER.debug("debug");
         LOGGER.info("info");
+        LOGGER.warn("warn");
         LOGGER.error("error");
         LOGGER.fatal("fatal");
 

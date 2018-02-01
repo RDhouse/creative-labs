@@ -28,6 +28,7 @@ public class Engine implements Runnable {
             LOGGER.trace("trace");
             LOGGER.debug("debug");
             LOGGER.info("info");
+            LOGGER.warn("warn");
             LOGGER.error("error");
             LOGGER.fatal("fatal");
             init();

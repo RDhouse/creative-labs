@@ -90,4 +90,8 @@ public class Window {
         glfwShowWindow(window);
     }
 
+    public void update() {}
+
+    public void destroy() {}
+
 }

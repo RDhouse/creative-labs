@@ -33,6 +33,13 @@ public class Engine implements Runnable {
     private void init() throws EngineException {
         this.window = new Window(800, 600);
         window.init();
+
+        game.init();
     }
-    private void loop() {}
+
+    private void loop() {
+        // update game
+        game.update();
+        game.render();
+    }
 }

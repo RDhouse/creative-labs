@@ -17,7 +17,7 @@ public class Engine implements Runnable {
     private Thread gameThread;
 
     public Engine(Game game) {
-        gameThread = new Thread();
+        gameThread = new Thread(this);
         this.game = game;
     }
 
@@ -41,5 +41,17 @@ public class Engine implements Runnable {
         // update game
         game.update();
         game.render();
+    }
+
+    public void start() {
+        gameThread.start();
+    }
+
+    public void stop() {
+        try {
+            gameThread.join();
+        } catch (InterruptedException ie) {
+            LOGGER.error(ie.getMessage(), ie);
+        }
     }
 }

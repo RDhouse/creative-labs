@@ -32,7 +32,7 @@ public class Simple {
             public void destroy() throws EngineException {
 
             }
-        }).run();
+        }).start();
     }
     
 }

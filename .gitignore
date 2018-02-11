@@ -10,3 +10,9 @@ creative-labs*.iws
 
 # logs
 logs/
+
+# eclipse
+.classpath
+.project
+.settings/
+bin/

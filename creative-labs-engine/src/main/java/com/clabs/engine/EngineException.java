@@ -5,7 +5,12 @@ package com.clabs.engine;
  */
 public class EngineException extends Exception {
 
-    public EngineException() {}
+    /**
+	 * Generated serialVersionUID
+	 */
+	private static final long serialVersionUID = -1379585722771172014L;
+
+	public EngineException() {}
 
     public EngineException(String message) {
         super(message);

@@ -1,21 +1,23 @@
 package com.clabs.demos;
 
+import static org.lwjgl.opengl.GL11.glClearColor;
+
+import org.lwjgl.opengl.GL;
+
 import com.clabs.engine.EngineException;
 import com.clabs.engine.api.Game;
 import com.clabs.engine.core.Engine;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Simple {
-
-    private static final Logger LOGGER = LogManager.getLogger(Simple.class);
 
     public static void main(String[] args) {
 
         new Engine(new Game() {
             @Override
             public void init() throws EngineException {
-
+            	GL.createCapabilities();
+            	
+            	glClearColor(1.0f, 0f, 0f, 0f);
             }
 
             @Override

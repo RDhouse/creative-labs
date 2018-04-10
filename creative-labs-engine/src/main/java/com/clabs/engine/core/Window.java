@@ -85,7 +85,7 @@ public class Window {
 			LOGGER.fatal("Failed to create the GLFW window");
 			throw new RuntimeException("Failed to create the GLFW window");
 		}
-
+		
 		// Get the thread stack and push a new frame
 		try ( MemoryStack stack = MemoryStack.stackPush() ) {
 			IntBuffer pWidth = stack.mallocInt(1); // int*
@@ -154,6 +154,10 @@ public class Window {
 		glfwDestroyWindow(window);
 		glfwTerminate();
 		glfwSetErrorCallback(null).free();
+    }
+    
+    public long getID() {
+    	return this.window;
     }
 
 }

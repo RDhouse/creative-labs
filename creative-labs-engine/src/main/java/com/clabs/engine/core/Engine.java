@@ -2,8 +2,11 @@ package com.clabs.engine.core;
 
 import com.clabs.engine.EngineException;
 import com.clabs.engine.api.Game;
+import com.clabs.engine.input.Input;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.glfw.GLFW;
 
 /**
  * Created by rutgerd on 1-2-2018.
@@ -21,7 +24,7 @@ public class Engine implements Runnable {
     private double tickRate = 1_000_000_000.0 / 60.0;
 
     public Engine(Game game) {
-        gameThread = new Thread(this);
+        gameThread = new Thread(this, "GAME_THREAD");
         this.game = game;
     }
 
@@ -38,13 +41,19 @@ public class Engine implements Runnable {
         	} catch (EngineException ee) {
         		LOGGER.error(ee.getMessage(), ee);
         	}
+        	LOGGER.info("succesfully stopped the engine");
         }
     }
 
     private void init() throws EngineException {
+    	// initialize window
         this.window = new Window(800, 600, "Some Game", true);
         window.init();
-
+        
+        // initialize input
+        GLFW.glfwSetKeyCallback(window.getID(), new Input());
+        
+        // initialize game
         game.init();
     }
 
@@ -71,7 +80,7 @@ public class Engine implements Runnable {
 
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				System.out.println(String.format("%d ups, %d fps", updates, frames));
+				LOGGER.debug(String.format("%d ups, %d fps", updates, frames));
 				updates = 0;
 				frames = 0;
 			}
@@ -85,6 +94,15 @@ public class Engine implements Runnable {
     }
     
     public void update(float delta) {
+    	// handle input
+    	if (Input.isKeyDown(GLFW.GLFW_KEY_ESCAPE)) {
+    		GLFW.glfwSetWindowShouldClose(window.getID(), true);
+    	}
+    	if (GLFW.glfwWindowShouldClose(window.getID())) {
+    		running = false;
+    	}
+    	
+    	// update game
     	game.update();
     }
     
@@ -101,4 +119,5 @@ public class Engine implements Runnable {
             LOGGER.error(ie.getMessage(), ie);
         }
     }
+   
 }

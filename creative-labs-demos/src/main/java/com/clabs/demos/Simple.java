@@ -22,7 +22,7 @@ public class Simple {
 
             @Override
             public void update() {
-
+            	
             }
 
             @Override

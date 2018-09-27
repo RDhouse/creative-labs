@@ -61,7 +61,7 @@ public class Window {
         this.vSync = vSync;
     }
 
-	public void init() throws EngineException {
+	public void init() {
 		// Setup an error callback. The default implementation
 		// will print the error message in System.err.
 		GLFWErrorCallback.createPrint(System.err).set();
@@ -147,7 +147,7 @@ public class Window {
 		glfwPollEvents();
     }
 
-    public void destroy() throws EngineException {
+    public void destroy() {
     	Callbacks.glfwFreeCallbacks(window);
 		glfwDestroyWindow(window);
 		glfwTerminate();

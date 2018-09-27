@@ -19,14 +19,16 @@ public class Engine implements Runnable {
     private Thread gameThread;
     
     private boolean running = false;
-    
-    private double tickRate = 1_000_000_000.0 / 60.0;
+
+    private static final double TICK_RATE = 60.0;
+   private double timeStep = 1_000_000_000.0 / TICK_RATE;
 
     public Engine(Game game) {
         gameThread = new Thread(this, "GAME_THREAD");
         this.game = game;
     }
 
+    @Override
     public void run() {
         try {
             init();
@@ -65,7 +67,7 @@ public class Engine implements Runnable {
 		
 		while (running) {
 			long now = System.nanoTime();
-			delta += (now - lastTime) / tickRate;
+			delta += (now - lastTime) / timeStep;
 			lastTime = now;
 
 			if (delta >= 1.0) {
@@ -108,15 +110,6 @@ public class Engine implements Runnable {
     public void render() {
     	window.update();
     	game.render();
-    }
-
-    public void stop() {
-        try {
-        	running = false;
-            gameThread.join();
-        } catch (InterruptedException ie) {
-            LOGGER.error(ie.getMessage(), ie);
-        }
     }
    
 }

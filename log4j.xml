@@ -4,11 +4,11 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <File name="EngineLogFile" fileName="logs/engine.log">
+        <File name="EngineLogFile" fileName="../logs/engine.log">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
             <append>false</append>
         </File>
-        <File name="DemosLogFile" fileName="logs/demos.log">
+        <File name="DemosLogFile" fileName="../logs/demos.log">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
             <append>false</append>
         </File>

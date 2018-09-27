@@ -32,6 +32,7 @@ import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
+import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
 
 public class Window {
@@ -111,6 +112,8 @@ public class Window {
 
 		// Make the window visible
 		glfwShowWindow(window);
+
+		GL.createCapabilities();
 	}
 
 //	private void loop() {

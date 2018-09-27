@@ -15,8 +15,6 @@ public class Simple {
         new Engine(new Game() {
             @Override
             public void init() throws EngineException {
-            	GL.createCapabilities();
-            	
             	glClearColor(1.0f, 0f, 0f, 0f);
             }
 

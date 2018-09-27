@@ -1,6 +1,6 @@
 package com.clabs.engine.api;
 
-import com.clabs.engine.EngineException;
+import com.clabs.engine.core.EngineException;
 
 /**
  * Created by rutgerd on 1-2-2018.

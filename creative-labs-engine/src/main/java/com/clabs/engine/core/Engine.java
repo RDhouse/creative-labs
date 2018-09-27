@@ -1,6 +1,5 @@
 package com.clabs.engine.core;
 
-import com.clabs.engine.EngineException;
 import com.clabs.engine.api.Game;
 import com.clabs.engine.input.Input;
 

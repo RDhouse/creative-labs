@@ -34,8 +34,6 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.MemoryStack;
 
-import com.clabs.engine.EngineException;
-
 public class Window {
 
     private static final Logger LOGGER = LogManager.getLogger(Window.class);

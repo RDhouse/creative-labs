@@ -1,4 +1,4 @@
-package com.clabs.engine;
+package com.clabs.engine.core;
 
 /**
  * Created by rutgerd on 1-2-2018.

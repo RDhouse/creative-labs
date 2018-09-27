@@ -4,7 +4,7 @@ import static org.lwjgl.opengl.GL11.glClearColor;
 
 import org.lwjgl.opengl.GL;
 
-import com.clabs.engine.EngineException;
+import com.clabs.engine.core.EngineException;
 import com.clabs.engine.api.Game;
 import com.clabs.engine.core.Engine;
 

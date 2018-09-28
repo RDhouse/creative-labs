@@ -1,9 +1,13 @@
 package com.clabs.demos;
 
 import com.clabs.engine.api.Game;
+import com.clabs.engine.core.Engine;
 import com.clabs.engine.core.EngineException;
 import com.clabs.engine.shader.ShaderProgram;
 import com.clabs.engine.util.FileUtils;
+
+import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
+import static org.lwjgl.opengl.GL11.glDrawElements;
 
 public class SimpleShaderDemo implements Game {
 
@@ -13,8 +17,8 @@ public class SimpleShaderDemo implements Game {
     public void init() throws EngineException {
         // create shader program.
         shaderProgram = new ShaderProgram();
-        shaderProgram.createVertexShader(FileUtils.loadResource(this.getClass().getResource("simple_shader_demo_vertex.glsl").toString()));
-        shaderProgram.createFragmentShader(FileUtils.loadResource(this.getClass().getResource("simple_shader_demo_fragment.glsl").toString()));
+        shaderProgram.createVertexShader(FileUtils.loadResource(this.getClass().getResource("simple_shader_demo_vertex.glsl").getPath()));
+        shaderProgram.createFragmentShader(FileUtils.loadResource(this.getClass().getResource("simple_shader_demo_fragment.glsl").getPath()));
         shaderProgram.link();
 
         // create vertices
@@ -43,5 +47,9 @@ public class SimpleShaderDemo implements Game {
         if (shaderProgram != null) {
             shaderProgram.destroy();
         }
+    }
+
+    public static void main(String[] args) {
+        new Engine(new SimpleShaderDemo()).start();
     }
 }

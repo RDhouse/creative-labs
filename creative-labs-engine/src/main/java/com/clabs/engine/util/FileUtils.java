@@ -19,7 +19,7 @@ public class FileUtils {
         try (BufferedReader reader = new BufferedReader(new FileReader(resourceLocation))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                sb.append(line);
+                sb.append(line + '\n');
             }
         } catch (FileNotFoundException fnfe) {
             LOGGER.error(fnfe);

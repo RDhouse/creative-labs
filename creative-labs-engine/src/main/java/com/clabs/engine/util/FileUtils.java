@@ -8,11 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ShaderUtils {
+public class FileUtils {
 
-    private static final Logger LOGGER = LogManager.getLogger(ShaderUtils.class);
+    private static final Logger LOGGER = LogManager.getLogger(FileUtils.class);
 
-    private ShaderUtils() {}
+    private FileUtils() {}
 
     public static String loadResource(String resourceLocation) {
         StringBuilder sb = new StringBuilder();

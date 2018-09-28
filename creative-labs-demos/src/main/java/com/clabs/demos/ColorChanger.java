@@ -18,14 +18,35 @@ public class ColorChanger implements Game {
     @Override
     public void init() throws EngineException {
         random = new Random();
+        r = random.nextFloat();
+        g = random.nextFloat();
+        b = random.nextFloat();
     }
 
     @Override
     public void update() {
         if (Input.isKeyDown(GLFW_KEY_SPACE)) {
-            r = random.nextFloat();
-            g = random.nextFloat();
-            b = random.nextFloat();
+            updateColor();
+        }
+    }
+
+    private void updateColor() {
+        float colorMax = 1.0f;
+        float colorStep = random.nextFloat();
+        if (r < colorMax) {
+            r += colorStep;
+        } else {
+            r -= colorStep;
+        }
+        if (g < colorMax) {
+            g += colorStep;
+        } else {
+            g -= colorStep;
+        }
+        if (b < colorMax) {
+            b += colorStep;
+        } else {
+            b -= colorStep;
         }
     }
 

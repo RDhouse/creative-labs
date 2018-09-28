@@ -1,6 +1,8 @@
 package com.clabs.engine.shader;
 
 import com.clabs.engine.core.EngineException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.joml.Vector3f;
 
 import java.util.HashMap;
@@ -12,9 +14,10 @@ import static org.lwjgl.opengl.GL20.*;
  * Class that encapsulates the creation of openGL shaders.
  *
  * TODO: Move the uniform handling to util class.
- * TODO: Add logger
  */
 public class ShaderProgram {
+
+    private static final Logger LOGGER = LogManager.getLogger(ShaderProgram.class);
 
     private int programID;
     private int vsID;
@@ -64,16 +67,30 @@ public class ShaderProgram {
         }
         glValidateProgram(programID);
         if (glGetProgrami(programID, GL_VALIDATE_STATUS) == 0) {
-//            throw new EngineException("Could not validate program: " + glGetShaderInfoLog(programID, 1024));
-            // TODO: instead of throwing exception, log this.
+            throw new EngineException("Could not validate program: " + glGetShaderInfoLog(programID, 1024));
         }
     }
 
-    public void bind() {}
+    public void bind() {
+        glUseProgram(programID);
+    }
 
-    public void unbind() {}
+    public void unbind() {
+        glUseProgram(0);
+    }
 
-    public void destroy() {}
+    public void destroy() {
+        unbind();
+        if (programID != 0) {
+            if (vsID != 0) {
+                glDetachShader(programID, vsID);
+            }
+            if (fsID != 0) {
+                glDetachShader(programID, fsID);
+            }
+            glDeleteProgram(programID);
+        }
+    }
 
     public void createUniform(String uniformName) throws EngineException {
         int uniformLocation = glGetUniformLocation(programID, uniformName);

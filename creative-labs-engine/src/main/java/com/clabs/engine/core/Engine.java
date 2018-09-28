@@ -21,7 +21,7 @@ public class Engine implements Runnable {
     private boolean running = false;
 
     private static final double TICK_RATE = 60.0;
-   private double timeStep = 1_000_000_000.0 / TICK_RATE;
+    private double timeStep = 1_000_000_000.0 / TICK_RATE;
 
     public Engine(Game game) {
         gameThread = new Thread(this, "GAME_THREAD");

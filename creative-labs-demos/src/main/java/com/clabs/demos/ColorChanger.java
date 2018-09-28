@@ -15,6 +15,8 @@ public class ColorChanger implements Game {
     private Random random;
     private float r, g, b;
 
+    private boolean rUp, gUp, bUp;
+
     @Override
     public void init() throws EngineException {
         random = new Random();
@@ -26,28 +28,45 @@ public class ColorChanger implements Game {
     @Override
     public void update() {
         if (Input.isKeyDown(GLFW_KEY_SPACE)) {
-            updateColor();
+            // Red channel
+            if (r <= 0) {
+                rUp = true;
+            }
+            if (r >= 1.0) {
+                rUp = false;
+            }
+            r = updateColor(r, rUp);
+
+            // Green channel
+            if (g <= 0) {
+                gUp = true;
+            }
+            if (g >= 1.0) {
+                gUp = false;
+            }
+            g = updateColor(g, gUp);
+
+            // Blue channel
+            if (b <= 0) {
+                bUp = true;
+            }
+            if (b >= 1.0) {
+                bUp = false;
+            }
+            b = updateColor(b, bUp);
         }
     }
 
-    private void updateColor() {
-        float colorMax = 1.0f;
-        float colorStep = random.nextFloat();
-        if (r < colorMax) {
-            r += colorStep;
+    private float updateColor(float color, boolean up) {
+        float colorStep = 1.0f / 60.0f;
+
+        if (up) {
+            color += colorStep;
         } else {
-            r -= colorStep;
+            color -= colorStep;
         }
-        if (g < colorMax) {
-            g += colorStep;
-        } else {
-            g -= colorStep;
-        }
-        if (b < colorMax) {
-            b += colorStep;
-        } else {
-            b -= colorStep;
-        }
+
+        return color;
     }
 
     @Override

@@ -1,6 +1,6 @@
 apply plugin: 'application'
 
-mainClassName = 'com.clabs.demos.ColorChanger'
+mainClassName = 'com.clabs.demos.SimpleShaderDemo'
 
 applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=../log4j.xml"]
 

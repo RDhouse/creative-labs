@@ -6,9 +6,6 @@ import com.clabs.engine.core.EngineException;
 import com.clabs.engine.shader.ShaderProgram;
 import com.clabs.engine.util.FileUtils;
 
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
-import static org.lwjgl.opengl.GL11.glDrawElements;
-
 public class SimpleShaderDemo implements Game {
 
     private ShaderProgram shaderProgram;

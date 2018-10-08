@@ -1,8 +1,12 @@
 apply plugin: 'application'
 
-mainClassName = 'com.clabs.demos.SimpleShaderDemo'
+mainClassName = 'com.clabs.demos.DemoStarter'
 
 applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=../log4j.xml"]
+
+run {
+    standardInput = System.in
+}
 
 dependencies {
     compile project(':creative-labs-engine')

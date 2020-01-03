@@ -14,9 +14,9 @@ public class FileUtils {
 
     private FileUtils() {}
 
-    public static String loadResource(String resourceLocation) {
+    public static String loadResource(String resource) {
         StringBuilder sb = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(resourceLocation))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(resource))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 sb.append(line + '\n');

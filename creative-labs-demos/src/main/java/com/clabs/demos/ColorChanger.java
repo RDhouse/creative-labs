@@ -14,13 +14,26 @@ public class ColorChanger implements Game {
 
     private Random random;
     private float r, g, b;
+    private final float minRangeColor = 0f;
+    private final float maxRangeColor = 1f;
+    private final float colorStepValue = 0.01f;
+    private boolean rChannelMovingUp = false;
+    private boolean gChannelMovingUp = false;
+    private boolean bChannelMovingUp = false;
 
     @Override
     public void init() throws EngineException {
         random = new Random();
+
+        // Setting initial random starting value for color
         r = random.nextFloat();
         g = random.nextFloat();
         b = random.nextFloat();
+
+        // initial direction setup colorstepping
+        rChannelMovingUp = random.nextBoolean();
+        gChannelMovingUp = random.nextBoolean();
+        bChannelMovingUp = random.nextBoolean();
     }
 
     @Override
@@ -31,22 +44,43 @@ public class ColorChanger implements Game {
     }
 
     private void updateColor() {
-        float colorMax = 1.0f;
-        float colorStep = random.nextFloat();
-        if (r < colorMax) {
-            r += colorStep;
+        // updating R(ed) channel of color
+        if (rChannelMovingUp) {
+            r += colorStepValue;
+            if (r >= maxRangeColor) {
+                rChannelMovingUp = false;
+            }
         } else {
-            r -= colorStep;
+            r -= colorStepValue;
+            if (r <= minRangeColor) {
+                rChannelMovingUp = true;
+            }
         }
-        if (g < colorMax) {
-            g += colorStep;
+
+        // updating G(reen) channel of color
+        if (gChannelMovingUp) {
+            g += colorStepValue;
+            if (g >= maxRangeColor) {
+                gChannelMovingUp = false;
+            }
         } else {
-            g -= colorStep;
+            g -= colorStepValue;
+            if (g <= minRangeColor) {
+                gChannelMovingUp = true;
+            }
         }
-        if (b < colorMax) {
-            b += colorStep;
+
+        // updating B(lue) channel of color
+        if (bChannelMovingUp) {
+            b += colorStepValue;
+            if (b >= maxRangeColor) {
+                bChannelMovingUp = false;
+            }
         } else {
-            b -= colorStep;
+            b -= colorStepValue;
+            if (b <= minRangeColor) {
+                bChannelMovingUp = true;
+            }
         }
     }
 

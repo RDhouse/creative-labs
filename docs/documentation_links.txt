@@ -1,0 +1,6 @@
+3D Game Development with LWJGL 3
+https://ahbejarano.gitbook.io/lwjglgamedev/
+
+The Nature Of Code
+https://natureofcode.com/book/
+

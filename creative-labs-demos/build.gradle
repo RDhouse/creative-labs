@@ -1,13 +1,11 @@
-apply plugin: 'application'
+plugins {
+    id 'application'
+}
 
 mainClassName = 'com.clabs.demos.ColorChanger'
 
 applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=../log4j.xml"]
 
-run {
-    standardInput = System.in
-}
-
 dependencies {
-    compile project(':creative-labs-engine')
+    implementation project(':creative-labs-engine')
 }

@@ -13,7 +13,6 @@ import static org.lwjgl.opengl.GL20.*;
 /**
  * Class that encapsulates the creation of openGL shaders.
  *
- * TODO: Move the uniform handling to util class.
  */
 public class ShaderProgram {
 

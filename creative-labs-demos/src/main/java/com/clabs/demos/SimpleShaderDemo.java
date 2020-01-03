@@ -18,13 +18,13 @@ public class SimpleShaderDemo implements Game {
         shaderProgram.createFragmentShader(FileUtils.loadResource(this.getClass().getResource("simple_shader_demo_fragment.glsl").getPath()));
         shaderProgram.link();
 
-        // create vertices
-        float[] vertices = new float[] {
-                -0.5f, 0.5f, 0.5f,
-                -0.5f, -0.5f, 0.5f,
-                0.5f, -0.5f, 0.5f,
-                0.5f, 0.5f, 0.5f
-        };
+        // // create vertices
+        // float[] vertices = new float[] {
+        //         -0.5f, 0.5f, 0.5f,
+        //         -0.5f, -0.5f, 0.5f,
+        //         0.5f, -0.5f, 0.5f,
+        //         0.5f, 0.5f, 0.5f
+        // };
     }
 
     @Override
@@ -35,7 +35,6 @@ public class SimpleShaderDemo implements Game {
     @Override
     public void render() {
         shaderProgram.bind();
-        // TODO:
         shaderProgram.unbind();
     }
 

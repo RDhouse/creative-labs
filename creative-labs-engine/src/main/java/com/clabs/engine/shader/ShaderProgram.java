@@ -1,8 +1,6 @@
 package com.clabs.engine.shader;
 
 import com.clabs.engine.core.EngineException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.joml.Vector3f;
 
 import java.util.HashMap;
@@ -15,8 +13,6 @@ import static org.lwjgl.opengl.GL20.*;
  *
  */
 public class ShaderProgram {
-
-    private static final Logger LOGGER = LogManager.getLogger(ShaderProgram.class);
 
     private int programID;
     private int vsID;
@@ -55,7 +51,7 @@ public class ShaderProgram {
         }
 
         glAttachShader(programID, shaderID);
-        
+
         return shaderID;
     }
 

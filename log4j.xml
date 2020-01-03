@@ -14,7 +14,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.clabs.demos" level="WARN" additivity="true">
+        <Logger name="com.clabs.demos" level="TRACE" additivity="true">
             <AppenderRef ref="DemosLogFile"/>
         </Logger>
         <Logger name="com.clabs.engine" level="TRACE" additivity="true">

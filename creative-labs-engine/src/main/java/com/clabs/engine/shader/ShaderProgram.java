@@ -55,9 +55,7 @@ public class ShaderProgram {
         }
 
         glAttachShader(programID, shaderID);
-
-        LOGGER.trace(String.format("succesfully created shader program with ID:%d", programID));
-
+        
         return shaderID;
     }
 

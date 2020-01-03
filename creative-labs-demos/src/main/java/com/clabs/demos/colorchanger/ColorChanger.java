@@ -1,4 +1,4 @@
-package com.clabs.demos;
+package com.clabs.demos.colorchanger;
 
 import com.clabs.engine.api.Game;
 import com.clabs.engine.core.Engine;

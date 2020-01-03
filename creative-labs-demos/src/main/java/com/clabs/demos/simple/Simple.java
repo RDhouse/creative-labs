@@ -1,4 +1,4 @@
-package com.clabs.demos;
+package com.clabs.demos.simple;
 
 import static org.lwjgl.opengl.GL11.glClearColor;
 import com.clabs.engine.core.EngineException;

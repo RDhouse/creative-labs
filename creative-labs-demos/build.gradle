@@ -2,7 +2,7 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'com.clabs.demos.ColorChanger'
+mainClassName = 'com.clabs.demos.shaderdemo.ShaderDemo'
 
 applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=../log4j.xml"]
 
